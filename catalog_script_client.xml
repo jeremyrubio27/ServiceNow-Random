@@ -1,0 +1,4832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-29 17:26:17">
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>false</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Learning JavaScript Design Patterns">6c24cde14793b110bc56b3f4116d4360</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>OnLoadSample</name>
+<order/>
+<script><![CDATA[function onLoad() {
+   //Type appropriate comment here, and begin script below
+      g_form.addInfoMessage("Sample Link: <a href = 'https://www.google.com''><font color='red'>https://www.google.com'</font></a>");
+	
+	
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-29 16:57:33</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>f9e157d147000210bc56b3f4116d43f9</sys_id>
+<sys_mod_count>13</sys_mod_count>
+<sys_name>OnLoadSample</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_f9e157d147000210bc56b3f4116d43f9</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-29 17:25:19</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>set</applies_to>
+<cat_item display_value=""/>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onSubmitInvalidChargeCode</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+    // Type appropriate comment here, and begin script below
+   
+    if(g_scratchpad.isValid){
+		return true
+	}
+	
+	var actionName = g_form.getActionName();
+    var validateWBS = new GlideAjax('BAC_UtilsCLient');
+    validateWBS.addParam('sysparm_name', 'validateChargeCode');
+    validateWBS.addParam('sysparm_wbs', g_form.getValue('u_bac_charge_code'));
+    validateWBS.getXMLAnswer(result)
+	
+	
+	
+	
+	
+	return false
+}
+		
+
+		
+	function result(response) {
+	if(response === true || response === "true"){
+		
+		g_scratchpad.isValid = true
+		var action = g_form.getActionName();
+		g_form.submit(action);
+	}else{
+		
+		g_form.elements['id="sp_formfield_u_bac_charge_code_fieldmsgs_container'].style.color = "violet"
+		
+        g_scratchpad.isValid = false
+		alert('Please provide valid charge code')
+	}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+// 		function (response) {
+//         g_scratchpad.isValid = ""
+//         if (response === "true" || response === true) {
+//             g_scratchpad.isValid = true;
+//         }
+		
+// 		 isValid = g_scratchpad.isValid;
+
+//         // Perform actions that depend on the asynchronous response here
+        
+//         // You can use 'isValid' directly where needed or trigger further actions.
+
+//         // Example: If you need to show a message based on validation
+//         if (!isValid) {
+//             alert('Invalid input. Please check your form.');
+// 		}
+		
+		
+// 		if(!isValid){
+// 		g_scratchpad.isFormValid = true;
+// 		}
+		
+// 		console.log(isValid + ' 3')
+// 		return false
+		
+    
+//     });
+	
+// 	console.log(isValid + ' 2')
+
+//     // Do not use 'g_scratchpad.isValid' here as the GlideAjax call is asynchronous
+//     // Use 'isValid', which is set in the callback function
+
+//     // Return false to prevent form submission if needed
+//     return isValid;
+// }
+
+
+   
+
+
+
+
+
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-03 14:30:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>14d6b40947e33910bc56b3f4116d43d4</sys_id>
+<sys_mod_count>83</sys_mod_count>
+<sys_name>onSubmitInvalidChargeCode</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Book Asset Catalog " source="x_808777_bac">612a5ce5479f7110bc56b3f4116d4310</sys_package>
+<sys_policy/>
+<sys_scope display_value="Book Asset Catalog ">612a5ce5479f7110bc56b3f4116d4310</sys_scope>
+<sys_update_name>catalog_script_client_14d6b40947e33910bc56b3f4116d43d4</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-29 16:54:18</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>10</ui_type>
+<variable_set display_value="[BAC] Billing info">d3441bdc47ab7510bc56b3f4116d43f2</variable_set>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>set</applies_to>
+<cat_item display_value=""/>
+<cat_variable>IO:ff2203d8476b7510bc56b3f4116d433b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChangeChargeCode</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+	
+	
+	var validateWBS = new GlideAjax('BAC_UtilsCLient');
+	validateWBS.addParam('sysparm_name' , 'validateChargeCode');
+	validateWBS.addParam('sysparm_wbs' , newValue);
+	validateWBS.getXMLAnswer(getValidation);
+	
+	
+	
+}
+
+   //Type appropriate comment here, and begin script below
+   
+
+
+// getMessage("--Your Message Key--", function(msg) {
+// g_form.showFieldMsg('state', msg, 'info', false);
+// }
+
+function getValidation(response){
+	
+	if(response === "true" || response === true){
+		response = true;
+	}else{
+		response = false;
+	}
+	
+	if(response){
+		g_form.clearMessages();
+        var infomsg = "Valid Charge Code";
+		g_form.showFieldMsg('u_bac_charge_code', infomsg, 'info', false);
+	}else{ 
+		g_form.clearMessages();
+		var errormsg = 'Invalid Charge Code';
+		g_form.showFieldMsg('u_bac_charge_code',errormsg,'warning',false);
+		
+	}
+}
+
+
+
+
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-03 13:14:56</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>26ffd80147a33910bc56b3f4116d4359</sys_id>
+<sys_mod_count>48</sys_mod_count>
+<sys_name>onChangeChargeCode</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Book Asset Catalog " source="x_808777_bac">612a5ce5479f7110bc56b3f4116d4310</sys_package>
+<sys_policy/>
+<sys_scope display_value="Book Asset Catalog ">612a5ce5479f7110bc56b3f4116d4310</sys_scope>
+<sys_update_name>catalog_script_client_26ffd80147a33910bc56b3f4116d4359</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-03 14:50:14</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value="[BAC] Billing info">d3441bdc47ab7510bc56b3f4116d43f2</variable_set>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>false</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>true</applies_req_item>
+<applies_sc_task>true</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Learning JavaScript Design Patterns">6c24cde14793b110bc56b3f4116d4360</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onLoadReadOnly</name>
+<order/>
+<script><![CDATA[function onLoad() {
+   //Type appropriate comment here, and begin script below
+    
+	
+	g_form.setReadOnly('u_bac_billing_info',true);
+	g_form.setReadOnly('u_bac_basic_information',true);
+	
+	
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-03 09:14:24</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>265eabb447aff510bc56b3f4116d4324</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>onLoadReadOnly</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Book Asset Catalog " source="x_808777_bac">612a5ce5479f7110bc56b3f4116d4310</sys_package>
+<sys_policy/>
+<sys_scope display_value="Book Asset Catalog ">612a5ce5479f7110bc56b3f4116d4310</sys_scope>
+<sys_update_name>catalog_script_client_265eabb447aff510bc56b3f4116d4324</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-03 09:16:23</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:c343384eb7321010e54deb56ee11a9be</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Validate regex on change</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-21 21:13:28</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>bcf107780f8301108320be630b767e5a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Validate regex on change</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_bcf107780f8301108320be630b767e5a</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-05-26 10:51:18</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:72ada6cab7b21010e54deb56ee11a9e6</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Get display name on change of list table</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-21 07:23:32</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>de2808300f0701108320be630b767eb9</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Get display name on change of list table</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_de2808300f0701108320be630b767eb9</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-22 00:35:31</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:956c4c170f031010e54d6b198b767e13</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Get display name on change of ref table</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-21 07:01:31</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>8d528cb80fc301108320be630b767efa</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Get display name on change of ref table</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_8d528cb80fc301108320be630b767efa</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-22 00:35:25</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:b69a05a30f2201101e2abe630b767e5f</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set default value helper </name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-21 10:41:52</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>b724b0b00f0301108320be630b767e14</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Set default value helper </sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_b724b0b00f0301108320be630b767e14</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-22 00:35:18</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:49ae30c2b7721010e54deb56ee11a9c2</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set ref qualifier on filter query change</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-21 10:52:33</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>7b37b0740f0301108320be630b767ef2</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Set ref qualifier on filter query change</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_7b37b0740f0301108320be630b767ef2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-21 10:55:47</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:c34b1842b7321010e54deb56ee11a92b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Clear default value on type change</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-10 20:12:41</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>d7ce069d0f3201101e2abe630b767e0b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Clear default value on type change</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d7ce069d0f3201101e2abe630b767e0b</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-11 17:47:00</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Initialize default value related fields</name>
+<order>200</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-04-10 20:03:27</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>042c061d0f3201101e2abe630b767e51</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Initialize default value related fields</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_042c061d0f3201101e2abe630b767e51</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-04-11 17:46:10</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>true</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Apply for Citizen Development">ebbb2414c3013010b83971e54440dd57</cat_item>
+<cat_variable>IO:229cff2653333010b846ddeeff7b12c7</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Check Intake status onChange</name>
+<order/>
+<script><![CDATA[var loadingDialog;
+
+function showLoading() {
+    loadingDialog.render();
+}
+
+function hideLoading() {
+    loadingDialog.destroy();
+}
+
+function onChange(control, oldValue, newValue, isLoading) {
+	var requestedForUserName = '';
+	
+	function runValidation() {
+		// stop the check since the user can't see the development_environment field
+		if (!g_user.hasRole("sn_app_eng_notify.app_engine_admin")) {
+			hideLoading();
+
+			return;
+		}
+
+// 		check to see if the selected environment has the user and the right version of AES installed
+		var validateAesVersion = new GlideAjax('sn_app_intake.ValidateIntakeStatus');
+		validateAesVersion.addParam('sysparm_name', 'validate');
+		validateAesVersion.addParam('sysparm_dev_environment_sys_id', newValue);
+		validateAesVersion.addParam('sysparm_requested_for_user_name', requestedForUserName);
+
+		validateAesVersion.getXML(validate);
+	}
+
+	g_form.getReference('request.requested_for', function (caller) { requestedForUserName = caller.user_name; });
+
+	loadingDialog = new GlideModal("sn_app_intake_checking_environment_aes_version", true);
+	loadingDialog.setTitle('Check Intake Status');
+	loadingDialog.on('bodyrendered', runValidation);
+
+	showLoading();
+}
+
+function validate(response) {
+    hideLoading();
+
+    try {
+        var answer = JSON.parse(response.responseXML.documentElement.getAttribute('answer'));
+        
+        if (answer.hasWarning)
+            g_form.showFieldMsg('development_instance', answer.warningMessage, 'warning');
+
+    } catch (e) {
+       jslog(e.message);
+    }
+}
+
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2022-01-10 23:04:01</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>72805394b74101100290b5208e11a9d4</sys_id>
+<sys_mod_count>134</sys_mod_count>
+<sys_name>Check Intake status onChange</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Application Intake" source="sn_app_intake">3d3c2505c3e22010b83971e54440dd75</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Application Intake">3d3c2505c3e22010b83971e54440dd75</sys_scope>
+<sys_update_name>catalog_script_client_72805394b74101100290b5208e11a9d4</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2022-02-03 17:38:14</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reclaim Asset">1297d75ba1617010fa9b20d39126489f</cat_item>
+<cat_variable>IO:5cdadfdba1617010fa9b20d39126486c</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Date validation</name>
+<order/>
+<script><![CDATA[/* global AssetReclamation */
+
+function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+	
+	var today = new Date();
+	today.setHours(0,0,0,0);
+	var startDateStr = g_form.getValue('reclaim_date');
+	var startDateNum = getDateFromFormat(startDateStr, g_user_date_format);
+
+	if (startDateNum < today) {
+		g_form.showFieldMsg('reclaim_date', getMessage('Reclaim date cannot be in the past'), 'error');
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-07-30 08:06:49</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>12a4ab93a1a17010fa9b20d3912648fb</sys_id>
+<sys_mod_count>38</sys_mod_count>
+<sys_name>Date validation</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Asset Management Common" source="sn_itam_common">8bc357701b9e0010cf95dd33dd5ada6c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Asset Management Common">8bc357701b9e0010cf95dd33dd5ada6c</sys_scope>
+<sys_update_name>catalog_script_client_12a4ab93a1a17010fa9b20d3912648fb</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-07 21:16:26</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reclaim Asset">1297d75ba1617010fa9b20d39126489f</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Validate form submission</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+	var today = new Date();
+	today.setHours(0,0,0,0);
+	var startDateStr = g_form.getValue('reclaim_date');
+	var startDateNum = getDateFromFormat(startDateStr, g_user_date_format);
+
+	if (startDateNum < today) {
+		return false;
+	}
+
+	return true;
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-07-30 19:58:59</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>57d78ee3a1e57010fa9b20d3912648e5</sys_id>
+<sys_mod_count>10</sys_mod_count>
+<sys_name>Validate form submission</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Asset Management Common" source="sn_itam_common">8bc357701b9e0010cf95dd33dd5ada6c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Asset Management Common">8bc357701b9e0010cf95dd33dd5ada6c</sys_scope>
+<sys_update_name>catalog_script_client_57d78ee3a1e57010fa9b20d3912648e5</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-11 18:58:41</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reclaim Asset">1297d75ba1617010fa9b20d39126489f</cat_item>
+<cat_variable>IO:53b95f9ba1617010fa9b20d391264835</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Employee separation selected first</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+	
+	if (g_form.getValue('employee_separation') === 'true' && newValue != '') {
+		var assetsGr = new GlideAjax("global.AssetReclamationUtil");
+		assetsGr.addParam('sysparm_name', 'getAssetsAssignedTo');
+		assetsGr.addParam('sysparm_userVal', g_form.getValue('requested_for'));
+		assetsGr.getXML(callbackFn);
+
+		function callbackFn(response) {
+			g_form.setValue('assets', response.responseXML.documentElement.getAttribute("answer").split(','));
+			g_form.setReadOnly('assets');
+		}
+	} else {
+		g_form.clearValue('assets');
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-08-03 23:05:54</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>ffe81bbcd4753010fa9bbe342f335eb2</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Employee separation selected first</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Asset Management Common" source="sn_itam_common">8bc357701b9e0010cf95dd33dd5ada6c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Asset Management Common">8bc357701b9e0010cf95dd33dd5ada6c</sys_scope>
+<sys_update_name>catalog_script_client_ffe81bbcd4753010fa9bbe342f335eb2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-11 18:57:55</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reclaim Asset">1297d75ba1617010fa9b20d39126489f</cat_item>
+<cat_variable>IO:977a9bdba1617010fa9b20d39126485a</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate assets employee separation</name>
+<order/>
+<script><![CDATA[/* global AssetReclamation */
+
+function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+	
+	if (newValue === 'true' && g_form.getValue('requested_for') != '') {
+		var assetsGr = new GlideAjax("global.AssetReclamationUtil");
+		assetsGr.addParam('sysparm_name', 'getAssetsAssignedTo');
+		assetsGr.addParam('sysparm_userVal', g_form.getValue('requested_for'));
+		assetsGr.getXML(callbackFn);
+
+		function callbackFn(response) {
+			g_form.setValue('assets', response.responseXML.documentElement.getAttribute("answer").split(','));
+			g_form.setReadOnly('assets');
+		}
+	} else {
+		g_form.clearValue('assets');
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-07-30 19:41:15</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>50a38a63a1e57010fa9b20d3912648dd</sys_id>
+<sys_mod_count>10</sys_mod_count>
+<sys_name>Populate assets employee separation</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Asset Management Common" source="sn_itam_common">8bc357701b9e0010cf95dd33dd5ada6c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Asset Management Common">8bc357701b9e0010cf95dd33dd5ada6c</sys_scope>
+<sys_update_name>catalog_script_client_50a38a63a1e57010fa9b20d3912648dd</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-11 18:57:19</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reclaim Asset">1297d75ba1617010fa9b20d39126489f</cat_item>
+<cat_variable>IO:83d7db5ba1617010fa9b20d391264882</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>User filter</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+	
+	if (newValue === 'user') {
+		g_form.clearValue('legal_hold_required');
+		g_form.setDisplay('legal_hold_required', false);
+		g_form.clearValue('employee_separation');
+		g_form.setDisplay('employee_separation', false);
+		g_form.setValue('requested_for', g_user.userID);
+		g_form.setReadOnly('requested_for', true);
+	} else {
+		g_form.clearValue('employee_separation');
+		g_form.setDisplay('employee_separation', true);
+		g_form.clearValue('requested_for');
+		g_form.setReadOnly('requested_for', false);
+		g_form.clearValue('legal_hold_required');
+		g_form.setDisplay('legal_hold_required', true);
+	}
+   
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-07-30 07:45:09</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>15afdbdfa1617010fa9b20d3912648e2</sys_id>
+<sys_mod_count>32</sys_mod_count>
+<sys_name>User filter</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Asset Management Common" source="sn_itam_common">8bc357701b9e0010cf95dd33dd5ada6c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Asset Management Common">8bc357701b9e0010cf95dd33dd5ada6c</sys_scope>
+<sys_update_name>catalog_script_client_15afdbdfa1617010fa9b20d3912648e2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-11 18:55:24</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>set</applies_to>
+<cat_item display_value=""/>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate condition variable</name>
+<order>200</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-08-03 08:20:11</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>f22e043887b130109ab44561d5cb0b4c</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Populate condition variable</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog - Service Fulfillment Step Types" source="sn_sc_step_types">894b7538c71320105901a1e603c260ac</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Service Catalog - Service Fulfillment Step Types">894b7538c71320105901a1e603c260ac</sys_scope>
+<sys_update_name>catalog_script_client_f22e043887b130109ab44561d5cb0b4c</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-03 08:20:41</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value="Service Fulfillment Steps - Properties set">73c0764073122010ae42d31ee2f6a77a</variable_set>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Validate question name</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-12-01 08:38:55</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>a2c322b173302010e12d1e3014f6a7ce</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Validate question name</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_a2c322b173302010e12d1e3014f6a7ce</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-08-03 05:58:13</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:2d4cdc42b7321010e54deb56ee11a999</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Show map to field on RP</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-06-16 12:22:59</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>db183d19c7b030103ec0a1e603c26022</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Show map to field on RP</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_db183d19c7b030103ec0a1e603c26022</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-06-16 13:18:19</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:c34b1842b7321010e54deb56ee11a92b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Initialise macro_condition_builder</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-06-15 14:57:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5490d1c1873030109ab44561d5cb0b5b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>initialise macro_condition_builder</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_5490d1c1873030109ab44561d5cb0b5b</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-06-15 14:57:17</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set fufillment steps field valid state</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-04-07 09:27:10</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>c04130f25313201008f2ddeeff7b12ea</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Set fufillment steps field valid state</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Fulfillment Steps" source="com.glideapp.servicecatalog.service_fulfillment_steps">868bb0643c35311068bcf327dfe37fc7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_c04130f25313201008f2ddeeff7b12ea</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-04-07 19:41:24</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Service Fulfillment Steps - Custom approval step">2d685eba87022010c84e4561d5cb0b6d</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>User or group both should not be empty</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+	var users = g_form.getValue("users");
+	var groups = g_form.getValue("groups");
+	
+	//User or group, atleast one should not be empty
+	if (!users && !groups) {
+		var msg = getMessage("Add at least one user or group");
+		g_form.addErrorMessage(msg);
+		return false;
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-04-01 12:45:24</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>c8446674c313201043833ce08d40dd4e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>User or group both should not be empty</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog - Service Fulfillment Step Types" source="sn_sc_step_types">894b7538c71320105901a1e603c260ac</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Service Catalog - Service Fulfillment Step Types">894b7538c71320105901a1e603c260ac</sys_scope>
+<sys_update_name>catalog_script_client_c8446674c313201043833ce08d40dd4e</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-04-05 08:47:31</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>set</applies_to>
+<cat_item display_value=""/>
+<cat_variable>IO:1050d0a873162010ae42d31ee2f6a7df</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set step sequence</name>
+<order>100</order>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    var mode = localStorage.getItem('sc_service_fulfillment_step_mode');
+    var sf_action = localStorage.getItem('sc_service_fulfillment_action');
+    var sf_prev_stage = localStorage.getItem('sc_service_fulfillment_previous_stage');
+    var sf_current_stage = localStorage.getItem('sc_service_fulfillment_current_stage');
+    var isGrouped = localStorage.getItem('is_sc_service_fulfillment_step_grouped') == 'true';
+    if (isLoading) {
+        if (mode == "edit") {
+            if (isGrouped) {
+                g_form.setValue('sequence', 'with_previous');
+            }
+            g_form.setValue('service_fulfillment_stage', sf_current_stage);
+            g_form.setReadOnly('service_fulfillment_stage', true);
+            g_form.setReadOnly('service_fulfillment_step_configuration', true);
+        } else {
+            if (sf_action)
+                g_form.setValue('service_fulfillment_step_configuration', sf_action);
+            // Asuming default value of sequence is after previous, so create a new stage
+            g_form.setValue('service_fulfillment_stage', '');
+        }
+        // If no previous stage, disable sequence
+		g_form.setReadOnly('sequence', !sf_prev_stage);
+        return;
+    }
+
+    if (mode == 'edit') {
+        if (isGrouped) {
+            if ('with_previous' == newValue)
+                g_form.setValue('service_fulfillment_stage', sf_current_stage);
+            else
+                g_form.setValue('service_fulfillment_stage', '');
+        } else {
+            if ('with_previous' == newValue)
+                g_form.setValue('service_fulfillment_stage', sf_prev_stage);
+            else
+                g_form.setValue('service_fulfillment_stage', sf_current_stage);
+        }
+    } else {
+        if ('with_previous' == newValue)
+            g_form.setValue('service_fulfillment_stage', sf_prev_stage);
+        else
+            g_form.setValue('service_fulfillment_stage', '');
+
+    }
+
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-09 14:32:15</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>dfc3946c73162010ae42d31ee2f6a7c2</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Set step sequence</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog - Service Fulfillment Step Types" source="sn_sc_step_types">894b7538c71320105901a1e603c260ac</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Service Catalog - Service Fulfillment Step Types">894b7538c71320105901a1e603c260ac</sys_scope>
+<sys_update_name>catalog_script_client_dfc3946c73162010ae42d31ee2f6a7c2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-03-31 15:24:40</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value="Service Fulfillment Steps - Properties set">73c0764073122010ae42d31ee2f6a77a</variable_set>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:5c7625b3c72220105901a1e603c260a2</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy days to delivery time field</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading) {
+        g_form.setDisplay('delivery_time', false);
+        convertDurationToDays();
+        return;
+    }
+    var dateSuffix = ' 00:00:00';
+    var daysString = !newValue ? '0' : newValue;
+    g_form.setValue('delivery_time', daysString + dateSuffix);
+}
+
+function convertDurationToDays() {
+    var durationValue = g_form.getValue('delivery_time');
+    var days = (!durationValue || durationValue.split(" ").length == 1) ? 0 : durationValue.split(" ")[0];
+    g_form.setValue('delivery_time_var', days);
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-03-04 09:28:21</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>fba6a5b3c72220105901a1e603c260de</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Copy days to delivery time field</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Fulfillment Steps" source="com.glideapp.servicecatalog.service_fulfillment_steps">868bb0643c35311068bcf327dfe37fc7</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_fba6a5b3c72220105901a1e603c260de</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-03-09 08:59:23</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:5a0441b673221010c84e2bb43cf6a7dd</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Hide SC Fulfillment steps</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    var isTemplateMode = g_form.$private.getField('sysparm_template_name');
+    if (isTemplateMode) {
+        g_form.setDisplay('fulfillment_steps', false);
+        g_form.setDisplay('delivery_time_var', false);
+        g_form.clearValue('fulfillment_steps');
+        return;
+    }
+
+    if (newValue == '') {
+        g_form.setDisplay('fulfillment_steps', false);
+        g_form.setDisplay('delivery_time_var', false);
+        return;
+    }
+
+    var ERROR_MESSAGE_VALIDATION_FAILED = getMessage('Error while fetching the SC flow registry data');
+    var url = 'api/now/table/sc_service_fulfillment_flow_registry?sysparm_query=active=true^service_fulfillment_flow=' + g_form.getValue('flow_designer_flow');
+
+    glideRequest.get(url, {}).then(function(response) {
+        if (!response.ok)
+            throw new Error(ERROR_MESSAGE_VALIDATION_FAILED);
+
+        return response.json();
+    }).then(function(data) {
+        var result = data.result;
+        g_form.setDisplay('fulfillment_steps', result.length > 0);
+        g_form.setDisplay('delivery_time_var', result.length > 0);
+    }, errorHandler);
+
+
+    function errorHandler() {
+        g_form.setDisplay('fulfillment_steps', false);
+        g_form.setDisplay('delivery_time_var', false);
+        g_form.addErrorMessage(ERROR_MESSAGE_VALIDATION_FAILED);
+    }
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-08 16:32:11</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>4da52fc0c7122010ca6da1e603c260e1</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Hide SC Fulfillment steps</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Fulfillment Steps" source="com.glideapp.servicecatalog.service_fulfillment_steps">868bb0643c35311068bcf327dfe37fc7</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_4da52fc0c7122010ca6da1e603c260e1</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-03-04 12:16:19</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>ReserveEntitlement [onSubmit] Ws</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+    g_ui_scripts.getUIScript('CalculateTotalCostWS').then(function(myUIScript) {
+		g_form.clearMessages();
+		
+		var origEndDate = localStorage.getItem("endDate");
+		var newEndDate = g_form.getValue('end_date');
+		var userDateFormat = localStorage.getItem("userDateFormat");
+		var endDateFormat = userDateFormat;
+		if(origEndDate === newEndDate) {
+			endDateFormat = 'yyyy-MM-dd';
+		}
+
+		var decimalRegex = /^\d*(\.\d{1,2})?$/;
+		var startDate = myUIScript.getFormattedDate(g_form.getValue('start_date'), userDateFormat);
+        var endDate = myUIScript.getFormattedDate(g_form.getValue('end_date'), endDateFormat);
+        var minDate = myUIScript.getFormattedDate(g_form.getValue('min_date'), 'yyyy-MM-dd');
+        var maxDate = myUIScript.getFormattedDate(g_form.getValue('max_date'), 'yyyy-MM-dd');
+		
+		var validationPassed = decimalRegex.test(g_form.getValue('unit_cost'))
+			&& startDate <= endDate
+			&& (!minDate || startDate >= minDate)
+			&& (!maxDate || endDate <= maxDate);
+		
+		if (!validationPassed) {
+			g_form.addErrorMessage(getMessage('Please correct the form errors below.'));
+		}
+		
+		return validationPassed;
+	});
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-22 13:05:25</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>3c2eb6e407e220106986e7430ad300f0</sys_id>
+<sys_mod_count>6</sys_mod_count>
+<sys_name>ReserveEntitlement [onSubmit] Ws</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_3c2eb6e407e220106986e7430ad300f0</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-22 13:16:33</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable>IO:b1c4282677ae3300edfc0ff9ba106121</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>UnitCost onChange</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+
+	var decimalRegex = /^\d*(\.\d{1,2})?$/;
+	g_form.hideFieldMsg('unit_cost', true);
+
+	if (!decimalRegex.test(g_form.getValue('unit_cost'))) {
+		g_form.showFieldMsg('unit_cost', 'Unit cost must be a numeric or decimal value.', 'error');
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2019-10-10 05:20:03</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>d2ee41171c500010fa9bb2ec1ff69fae</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>UnitCost onChange</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d2ee41171c500010fa9bb2ec1ff69fae</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-22 13:05:44</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable>IO:bcd5f7ca77663300edfc0ff9ba1061c3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>StartDate onChange Ws</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	// NOTE: Due to limitations of Record Producer, most of the code here is duplicated with EndDate onChange.
+	//       Make sure any changes made in the duplicated section also are changed in the other file.
+	
+	// BEGIN DUPLICATED SECTION
+	if (isLoading) {
+		return;
+	}
+
+	g_ui_scripts.getUIScript('CalculateTotalCostWS').then(function(myUIScript) {
+		g_form.hideFieldMsg('start_date', true);
+		g_form.hideFieldMsg('end_date', true);
+	
+		var origEndDate = localStorage.getItem("endDate");
+		var newEndDate = g_form.getValue('end_date');
+		var userDateFormat = localStorage.getItem("userDateFormat");
+		var endDateFormat = userDateFormat;
+		if(origEndDate === newEndDate) {
+			endDateFormat = 'yyyy-MM-dd';
+		}
+		var hasStartDate = g_form.getValue('start_date') != '';
+		var hasEndDate = g_form.getValue('end_date') != '';
+		var startDate = myUIScript.getFormattedDate(g_form.getValue('start_date'), userDateFormat);
+        var endDate = myUIScript.getFormattedDate(g_form.getValue('end_date'),endDateFormat);
+        var minDate = myUIScript.getFormattedDate(g_form.getValue('min_date'),'yyyy-MM-dd');
+        var maxDate = myUIScript.getFormattedDate(g_form.getValue('max_date'),'yyyy-MM-dd');
+		
+		var message;
+		if (startDate && minDate && startDate < minDate) {
+			message = getMessage('The start date must be on or after the source entitlement start date: {0}')
+				.replace('{0}', g_form.getValue('min_date'));
+			g_form.showFieldMsg('start_date', message, 'error');
+		}
+		
+		if (endDate && maxDate && endDate > maxDate) {
+			message = getMessage('The end date must be on or before the source entitlement end date: {0}')
+				.replace('{0}', g_form.getValue('max_date'));
+			g_form.showFieldMsg('end_date', message, 'error');
+		}
+		// END DUPLICATED SECTION
+		
+		// BEGIN UNIQUE SECTION
+		if (startDate && endDate && startDate > endDate) {
+			g_form.showFieldMsg('start_date', getMessage('The start date must be less than the end date.'), 'error');
+		}
+		// END UNIQUE SECTION
+	});
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-22 13:04:12</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>07dd36e407e220106986e7430ad30077</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>StartDate onChange Ws</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_07dd36e407e220106986e7430ad30077</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-22 13:04:12</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable>IO:7176fbca77663300edfc0ff9ba1061e8</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>EndDate onChange Ws</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	// NOTE: Due to limitations of Record Producer, most of the code here is duplicated with StartDate onChange.
+	//       Make sure any changes made in the duplicated section also are changed in the other file.
+	
+	
+	// BEGIN DUPLICATED SECTION
+	if (isLoading) {
+		return;
+	}
+
+	g_ui_scripts.getUIScript('CalculateTotalCostWS').then(function(myUIScript) {
+		g_form.hideFieldMsg('start_date', true);
+		g_form.hideFieldMsg('end_date', true);
+	
+		var hasStartDate = g_form.getValue('start_date') != '';
+		var hasEndDate = g_form.getValue('end_date') != '';
+		var userDateFormat = localStorage.getItem("userDateFormat");
+		var startDate = myUIScript.getFormattedDate(g_form.getValue('start_date'), userDateFormat);
+        var endDate = myUIScript.getFormattedDate(g_form.getValue('end_date'),userDateFormat);
+        var minDate = myUIScript.getFormattedDate(g_form.getValue('min_date'),'yyyy-MM-dd');
+        var maxDate = myUIScript.getFormattedDate(g_form.getValue('max_date'),'yyyy-MM-dd');
+	
+	
+		var message;
+		if (startDate && minDate && startDate < minDate) {
+			message = getMessage('The start date must be on or after the source entitlement start date: {0}')
+				.replace('{0}', g_form.getValue('min_date'));
+			g_form.showFieldMsg('start_date', message, 'error');
+		}
+		
+		if (endDate && maxDate && endDate > maxDate) {
+			message = getMessage('The end date must be on or before the source entitlement end date: {0}')
+				.replace('{0}', g_form.getValue('max_date'));
+			g_form.showFieldMsg('end_date', message, 'error');
+		}
+		// END DUPLICATED SECTION
+		
+		// BEGIN UNIQUE SECTION
+		if (startDate && endDate && startDate > endDate) {
+			g_form.showFieldMsg('end_date', getMessage('The end date must be greater than the start date.'), 'error');
+		}
+		// END UNIQUE SECTION
+	});
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-22 13:02:40</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>51cc3aa407e220106986e7430ad30068</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>EndDate onChange Ws</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_51cc3aa407e220106986e7430ad30068</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-22 13:02:53</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>OnloadWs</name>
+<order/>
+<script><![CDATA[
+function onLoad() {
+	
+	g_form.setDisplay('license_metric', false);
+	g_form.setDisplay('metric_group', false);
+	g_form.setDisplay('min_date', false);
+	g_form.setDisplay('max_date', false);
+
+		 var endDate =localStorage.getItem("endDate")
+         var unitCost = localStorage.getItem("unitCost");
+         var softwareModel = localStorage.getItem("softwareModel");
+         var sourceEntitlement = localStorage.getItem("sysId")
+         var licenseMetric = localStorage.getItem("licenseMetric");
+         var metricGroup = localStorage.getItem("metricGroup");
+         var minDate =  localStorage.getItem("minDate");
+         var maxDate = localStorage.getItem("maxDate");
+
+    if (minDate) {
+        g_form.setValue('min_date', minDate);
+    }
+
+    if (maxDate) {
+        g_form.setValue('max_date', maxDate);
+    }
+
+    if (endDate) {
+        g_form.setValue('end_date', endDate);
+    }
+    if (unitCost) {
+        g_form.setValue('unit_cost', parseFloat(unitCost));
+    }
+    g_form.setValue('software_model', softwareModel);
+    g_form.setReadOnly('software_model', true);
+    g_form.setValue('source_entitlement', sourceEntitlement);
+    g_form.setReadOnly('source_entitlement', true);
+    g_form.setValue('license_metric', licenseMetric);
+    g_form.setValue('metric_group', metricGroup);
+
+}
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-22 12:39:43</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>de677ee007e220106986e7430ad30055</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>OnloadWs</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_de677ee007e220106986e7430ad30055</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-22 12:52:34</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Service Fulfillment Steps - Task step">573bfe8473122010ae42d31ee2f6a75b</cat_item>
+<cat_variable>IO:769d760873122010ae42d31ee2f6a7e3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Clear assigned to</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue == '') {
+        return;
+    }
+
+    if (newValue != oldValue)
+        g_form.clearValue('assigned_to');
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-02-18 15:10:29</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5643f2d387122010c84e4561d5cb0bdd</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Clear assigned to</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog - Service Fulfillment Step Types" source="sn_sc_step_types">894b7538c71320105901a1e603c260ac</sys_package>
+<sys_policy>read</sys_policy>
+<sys_scope display_value="Service Catalog - Service Fulfillment Step Types">894b7538c71320105901a1e603c260ac</sys_scope>
+<sys_update_name>catalog_script_client_5643f2d387122010c84e4561d5cb0bdd</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-02-18 15:12:19</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:e91b1842b7321010e54deb56ee11a933</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate Name with field</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-25 20:38:08</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>03dd9866b7f21010e54deb56ee11a990</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Populate Name with field</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_03dd9866b7f21010e54deb56ee11a990</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-12-17 10:18:08</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:3841740eb7321010e54deb56ee11a9f2</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set Do not select first choice</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue == '') {
+        return;
+    }
+
+    if (newValue == 'true' && g_form.getValue('sub_type') == '3') {
+        g_form.setValue('do_not_select_first', 'false');
+    }
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-12-02 07:05:31</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>7d98974273742010728c2ee2c4f6a7b0</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Set Do not select first choice</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_7d98974273742010728c2ee2c4f6a7b0</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-12-02 14:28:26</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Initialize look up  value</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-09 11:49:16</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>6f7433c70f031010e54d6b198b767e98</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Initialize look up  value</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_6f7433c70f031010e54d6b198b767e98</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-12-01 07:15:43</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:03d4faa60f031010e54d6b198b767e52</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Sync Lookup label with lookup value</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-12-01 00:47:37</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5bf8b0b1b7302010f03e9b7ade11a9a8</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Sync Lookup label with lookup value</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_5bf8b0b1b7302010f03e9b7ade11a9a8</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-12-01 00:47:37</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:3586fdceb7321010e54deb56ee11a937</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Validate question choices</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-11-02 06:13:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>d8bca8a073102010e12d1e3014f6a755</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Validate question choices</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d8bca8a073102010e12d1e3014f6a755</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-25 20:07:24</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:dd6ad7ee73321010c84e2bb43cf6a7b3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages>This list is being updated based on your catalog selections
+Error updating categories, please retry after removing all categories and selecting them again</messages>
+<name>validate catalogs and categories</name>
+<order>200</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-11-16 14:56:58</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>557b664587202010c84e4561d5cb0b50</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>validate catalogs and categories</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_557b664587202010c84e4561d5cb0b50</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-18 05:45:24</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>set</applies_to>
+<cat_item display_value=""/>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate Catalog Item and Variable</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-17 06:59:24</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>2cfc7f25539310101553ddeeff7b124a</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Populate Catalog Item and Variable</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_2cfc7f25539310101553ddeeff7b124a</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-17 02:09:32</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value="Catalog UI Policy Action">0f79d50e533210101553ddeeff7b12fd</variable_set>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:265782d3c7321010159ca1e603c2609b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages>This list is being updated based on your catalog selections
+Error updating categories, please retry after removing all categories and selecting them again</messages>
+<name>validate catalogs and categories</name>
+<order>200</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-11-16 16:23:25</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>938ffa4187602010c84e4561d5cb0b5b</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>validate catalogs and categories</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_938ffa4187602010c84e4561d5cb0b5b</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-16 16:38:29</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Handle Item active field</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-23 21:31:34</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>59500e3b53131010c84eddeeff7b12eb</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Handle Item active field</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_59500e3b53131010c84eddeeff7b12eb</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-16 14:38:20</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Default value of record_producer_table</name>
+<order>100</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 18:01:41</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>279341b6b7321010e54deb56ee11a9ae</sys_id>
+<sys_mod_count>15</sys_mod_count>
+<sys_name>Default value of record_producer_table</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_279341b6b7321010e54deb56ee11a9ae</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-04 12:06:11</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onLoad Process engine</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-10-06 07:55:10</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>7ec14ebb0f2310101527008c07767ef0</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>onLoad Process engine</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_7ec14ebb0f2310101527008c07767ef0</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-11-03 06:38:28</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:987e6b18c7721010159ca1e603c260b9</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChange of Hide Mandatory</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-10-07 07:57:47</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>4c4c4b800b3310106b80482393673a07</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>onChange of Hide Mandatory</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_4c4c4b800b3310106b80482393673a07</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-10-07 08:04:24</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:4deeeb18c7721010159ca1e603c26086</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChange of Mandatory Attachment</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-10-07 07:58:13</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>2b5c4b800b3310106b80482393673af7</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>onChange of Mandatory Attachment</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_2b5c4b800b3310106b80482393673af7</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-10-07 08:04:19</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Mandatory and Hide Attachment helper</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-10-07 07:56:57</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>0ffb07800b3310106b80482393673a4f</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Mandatory and Hide Attachment helper</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_0ffb07800b3310106b80482393673a4f</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-10-07 08:04:14</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:d2834d7673221010c84e2bb43cf6a77e</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChange Process engine</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-10-01 13:36:16</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>137fd91a0f2310101527008c07767ec8</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>onChange Process engine</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_137fd91a0f2310101527008c07767ec8</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-10-06 18:00:49</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:b7580a17c7321010159ca1e603c260fe</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy categories value on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-28 12:28:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>f46a4e57c7321010159ca1e603c260ce</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy categories value on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_f46a4e57c7321010159ca1e603c260ce</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:54:03</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:265782d3c7321010159ca1e603c2609b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy catalogs value on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-28 12:26:12</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>cce98657c7321010159ca1e603c26091</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy catalogs value on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_cce98657c7321010159ca1e603c26091</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:53:57</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:1c09ce17c7321010159ca1e603c26099</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy available UC on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-28 12:34:26</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>79db02d7c7321010159ca1e603c26044</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy available UC on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_79db02d7c7321010159ca1e603c26044</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:53:52</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:d769c257c7321010159ca1e603c26072</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy not available uc onto producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-28 12:33:13</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>325b8297c7321010159ca1e603c2602c</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy not available uc onto producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_325b8297c7321010159ca1e603c2602c</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:53:44</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:0c74d0f673321010c84e2bb43cf6a722</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy available UC on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 14:51:34</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>efe7107a73321010c84e2bb43cf6a781</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy available UC on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_efe7107a73321010c84e2bb43cf6a781</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:51:37</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:4d0b132273721010c84e2bb43cf6a7bb</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy categories value on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 12:49:39</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>880cf3ea73321010c84e2bb43cf6a709</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Copy categories value on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_880cf3ea73321010c84e2bb43cf6a709</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:51:33</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:dd6ad7ee73321010c84e2bb43cf6a7b3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy catalogs value on to producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 12:40:19</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>7d01bf6673321010c84e2bb43cf6a7c1</sys_id>
+<sys_mod_count>11</sys_mod_count>
+<sys_name>Copy catalogs value on to producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_7d01bf6673321010c84e2bb43cf6a7c1</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:51:28</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:9f675c3a73321010c84e2bb43cf6a73b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Copy notavailable uc onto producer set</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 14:53:21</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5068147a73321010c84e2bb43cf6a752</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Copy notavailable uc onto producer set</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_5068147a73321010c84e2bb43cf6a752</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-29 11:50:48</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>true</applies_req_item>
+<applies_sc_task>true</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set Question type variable</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-24 13:36:25</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>0911bd0eb7321010e54deb56ee11a9b2</sys_id>
+<sys_mod_count>6</sys_mod_count>
+<sys_name>Set Question type variable</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_0911bd0eb7321010e54deb56ee11a9b2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-28 13:06:22</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:2d4cdc42b7321010e54deb56ee11a999</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Adjust sub types based on question type</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-24 14:36:13</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>e961c686b7721010e54deb56ee11a92c</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>Adjust sub types based on question type</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_e961c686b7721010e54deb56ee11a92c</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-28 12:48:08</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:7023ff470f031010e54d6b198b767e3f</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set lookup values choice list</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-09 13:03:09</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>d9b54c130f031010e54d6b198b767e56</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Set lookup values choice list</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d9b54c130f031010e54d6b198b767e56</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-27 11:26:48</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:6ab0700eb7321010e54deb56ee11a90e</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate Name with question text</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-25 20:27:30</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>425b9026b7f21010e54deb56ee11a942</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>Populate Name with question text</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_425b9026b7f21010e54deb56ee11a942</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-26 11:41:11</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Record Producer Builder">3558cf50c7321010159ca1e603c2605b</cat_item>
+<cat_variable>IO:265782d3c7321010159ca1e603c2609b</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>category readonly when catalogs empty</name>
+<order>100</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-28 12:31:11</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>1d0b8e57c7321010159ca1e603c260eb</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>category readonly when catalogs empty</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_1d0b8e57c7321010159ca1e603c260eb</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 19:24:27</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Mandatory and Hide Attachment helper</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-25 19:08:34</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>7132f3d473231010c84e2bb43cf6a71f</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Mandatory and Hide Attachment helper</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_7132f3d473231010c84e2bb43cf6a71f</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 19:19:45</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:8943897673221010c84e2bb43cf6a7a0</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChange of Hide Mandatory</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-25 19:03:51</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>6f8e275473231010c84e2bb43cf6a70a</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>onChange of Hide Mandatory</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_6f8e275473231010c84e2bb43cf6a70a</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 19:19:06</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:ae63c97673221010c84e2bb43cf6a7c2</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>onChange of Mandatory Attachment</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-25 19:04:02</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>9fb1b39473231010c84e2bb43cf6a7a7</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>onChange of Mandatory Attachment</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_9fb1b39473231010c84e2bb43cf6a7a7</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 19:18:59</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:dd6ad7ee73321010c84e2bb43cf6a7b3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>category readonly when catalogs empty</name>
+<order>100</order>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-26 11:26:31</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>9fc8ab6273321010c84e2bb43cf6a7a0</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>category readonly when catalogs empty</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_9fc8ab6273321010c84e2bb43cf6a7a0</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 18:35:34</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value=""/>
+<cat_variable>sysparm_template_canedit</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Template mode overrides controller</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-24 07:40:49</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>4a81a88673321010c84e2bb43cf6a728</sys_id>
+<sys_mod_count>9</sys_mod_count>
+<sys_name>Template mode overrides controller</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Template" source="com.glideapp.servicecatalog.catalog_template">a77bbc243c35311068bcf327dfe37fa5</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_4a81a88673321010c84e2bb43cf6a728</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-25 05:45:54</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>1</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Handle Item active field</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-23 21:15:20</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>828bbd7753131010c84eddeeff7b1209</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Handle Item active field</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_828bbd7753131010c84eddeeff7b1209</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-23 21:15:20</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>true</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog UI Policy">7bf8d10e533210101553ddeeff7b1200</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Populate Variable Values</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-31 13:45:16</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>cba8b114530310101553ddeeff7b124b</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Populate Variable Values</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_cba8b114530310101553ddeeff7b124b</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-22 04:29:17</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Item Builder">91edb87273221010c84e2bb43cf6a7ae</cat_item>
+<cat_variable>IO:0cd0813673221010c84e2bb43cf6a77d</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Default Settings for Request Method</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-14 08:22:12</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>3cabcdba73221010c84e2bb43cf6a73c</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Default Settings for Request Method</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_3cabcdba73221010c84e2bb43cf6a73c</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-17 04:39:09</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:956c4c170f031010e54d6b198b767e13</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set builder on change of reference</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-08 20:07:36</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>2c5c18070f031010e54d6b198b767e69</sys_id>
+<sys_mod_count>6</sys_mod_count>
+<sys_name>Set builder on change of reference</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_2c5c18070f031010e54d6b198b767e69</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-13 11:17:27</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:72ada6cab7b21010e54deb56ee11a9e6</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set builder onchange of list table</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-10 18:49:04</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>027e1a630f831010e54d6b198b767e9e</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Set builder onchange of list table</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_027e1a630f831010e54d6b198b767e9e</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-13 11:17:13</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable>IO:7023ff470f031010e54d6b198b767e3f</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Set builder onchange of lookup table</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-09-10 18:50:03</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>d0be5a630f831010e54d6b198b767e08</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Set builder onchange of lookup table</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d0be5a630f831010e54d6b198b767e08</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-13 07:36:29</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Catalog Variable Creation">79c99042b7321010e54deb56ee11a907</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>Default Value for catalog item</name>
+<order/>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-08-25 20:47:08</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5cbf98a6b7f21010e54deb56ee11a9af</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Default Value for catalog item</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Builder" source="com.glideapp.servicecatalog.catalog_builder">cb7b7c243c35311068bcf327dfe37fb7</sys_package>
+<sys_policy>protected</sys_policy>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_5cbf98a6b7f21010e54deb56ee11a9af</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-09-07 10:35:48</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>OnLoad</name>
+<order/>
+<script><![CDATA[var sessionDateFormat = function (dateString) {
+	return formatDate(new Date(getDateFromFormat(dateString, 'yyyy-MM-dd')), g_user_date_format)
+};
+
+function onLoad() {
+	g_form.setDisplay('license_metric', false);
+	g_form.setDisplay('metric_group', false);
+	g_form.setDisplay('min_date', false);
+	g_form.setDisplay('max_date', false);
+
+	var url = new GlideURL();
+	url.setFromCurrent();
+
+	var endDate = url.getParam('sysparm_endDate');
+	var unitCost = url.getParam('sysparm_unitCost');
+	var softwareModel = url.getParam('sysparm_softwareModel');
+	var sourceEntitlement = url.getParam('sysparm_sourceEntitlement');
+	var licenseMetric = url.getParam('sysparm_licenseMetric');
+	var metricGroup = url.getParam('sysparm_metricGroup');
+	var minDate = url.getParam('sysparm_minDate');
+	var maxDate = url.getParam('sysparm_maxDate');
+
+	if (minDate) {
+		g_form.setValue('min_date', sessionDateFormat(minDate));
+	}
+
+	if (maxDate) {
+		g_form.setValue('max_date', sessionDateFormat(maxDate));
+	}
+
+	if (endDate) {
+		g_form.setValue('end_date', sessionDateFormat(endDate));
+	}
+	if (unitCost) {
+		g_form.setValue('unit_cost', parseFloat(unitCost));
+	}
+	g_form.setValue('software_model', softwareModel);
+	g_form.setReadOnly('software_model', true);
+	g_form.setValue('source_entitlement', sourceEntitlement);
+	g_form.setReadOnly('source_entitlement', true);
+	g_form.setValue('license_metric', licenseMetric);
+	g_form.setValue('metric_group', metricGroup);
+}
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2019-07-11 21:08:28</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>156fb30277a63300edfc0ff9ba106155</sys_id>
+<sys_mod_count>114</sys_mod_count>
+<sys_name>OnLoad</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_156fb30277a63300edfc0ff9ba106155</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2019-11-25 23:32:29</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable>IO:bcd5f7ca77663300edfc0ff9ba1061c3</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>StartDate onChange</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	// NOTE: Due to limitations of Record Producer, most of the code here is duplicated with EndDate onChange.
+	//       Make sure any changes made in the duplicated section also are changed in the other file.
+	
+	// BEGIN DUPLICATED SECTION
+	if (isLoading) {
+		return;
+	}
+
+	g_form.hideFieldMsg('start_date', true);
+	g_form.hideFieldMsg('end_date', true);
+
+	var hasStartDate = g_form.getValue('start_date') != '';
+	var hasEndDate = g_form.getValue('end_date') != '';
+	var startDate = getDateFromFormat(g_form.getValue('start_date'), g_user_date_format);
+	var endDate = getDateFromFormat(g_form.getValue('end_date'), g_user_date_format);
+	var minDate = getDateFromFormat(g_form.getValue('min_date'), g_user_date_format);
+	var maxDate = getDateFromFormat(g_form.getValue('max_date'), g_user_date_format);
+
+	if (hasStartDate && !startDate) {
+		g_form.showFieldMsg('start_date', new GwtMessage().getMessage("Invalid start date. Expecting format '{0}'", g_user_date_format), 'error');
+	} 
+	
+	if (hasEndDate && !endDate) {
+		g_form.showFieldMsg('end_date', new GwtMessage().getMessage("Invalid start date. Expecting format '{0}'", g_user_date_format), 'error');
+	}
+	
+	if (startDate && minDate && startDate < minDate) {
+		g_form.showFieldMsg('start_date', new GwtMessage().getMessage('The start date must be on or after the source entitlement start date: {0}', g_form.getValue('min_date')), 'error');
+	}
+	
+	if (endDate && maxDate && endDate > maxDate) {
+		g_form.showFieldMsg('end_date', new GwtMessage().getMessage('The end date must be on or before the source entitlement end date: {0}', g_form.getValue('max_date')), 'error');
+	}
+	// END DUPLICATED SECTION
+	
+	// BEGIN UNIQUE SECTION
+	if (startDate && endDate && startDate > endDate) {
+		g_form.showFieldMsg('start_date', getMessage('The start date must be less than the end date.'), 'error');
+	}
+	// END UNIQUE SECTION
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2019-09-09 21:29:38</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>d5a3c1ad77f33300edfc0ff9ba10612a</sys_id>
+<sys_mod_count>16</sys_mod_count>
+<sys_name>StartDate onChange</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_d5a3c1ad77f33300edfc0ff9ba10612a</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2019-10-11 05:58:25</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable>IO:7176fbca77663300edfc0ff9ba1061e8</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>EndDate onChange</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	// NOTE: Due to limitations of Record Producer, most of the code here is duplicated with StartDate onChange.
+	//       Make sure any changes made in the duplicated section also are changed in the other file.
+	
+	
+	// BEGIN DUPLICATED SECTION
+	if (isLoading) {
+		return;
+	}
+
+	g_form.hideFieldMsg('start_date', true);
+	g_form.hideFieldMsg('end_date', true);
+
+	var hasStartDate = g_form.getValue('start_date') != '';
+	var hasEndDate = g_form.getValue('end_date') != '';
+	var startDate = getDateFromFormat(g_form.getValue('start_date'), g_user_date_format);
+	var endDate = getDateFromFormat(g_form.getValue('end_date'), g_user_date_format);
+	var minDate = getDateFromFormat(g_form.getValue('min_date'), g_user_date_format);
+	var maxDate = getDateFromFormat(g_form.getValue('max_date'), g_user_date_format);
+
+	if (hasStartDate && !startDate) {
+		g_form.showFieldMsg('start_date', new GwtMessage().getMessage("Invalid start date. Expecting format '{0}'", g_user_date_format), 'error');
+	} 
+	
+	if (hasEndDate && !endDate) {
+		g_form.showFieldMsg('end_date', new GwtMessage().getMessage("Invalid start date. Expecting format '{0}'", g_user_date_format), 'error');
+	}
+	
+	if (startDate && minDate && startDate < minDate) {
+		g_form.showFieldMsg('start_date', new GwtMessage().getMessage('The start date must be on or after the source entitlement start date: {0}', g_form.getValue('min_date')), 'error');
+	}
+	
+	if (endDate && maxDate && endDate > maxDate) {
+		g_form.showFieldMsg('end_date', new GwtMessage().getMessage('The end date must be on or before the source entitlement end date: {0}', g_form.getValue('max_date')), 'error');
+	}
+	// END DUPLICATED SECTION
+	
+	// BEGIN UNIQUE SECTION
+	if (startDate && endDate && startDate > endDate) {
+		g_form.showFieldMsg('end_date', getMessage('The end date must be greater than the start date.'), 'error');
+	}
+	// END UNIQUE SECTION
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2019-09-09 21:34:33</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>0a8445ed77f33300edfc0ff9ba1061f6</sys_id>
+<sys_mod_count>14</sys_mod_count>
+<sys_name>EndDate onChange</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_0a8445ed77f33300edfc0ff9ba1061f6</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2019-10-11 05:58:16</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Reserve Entitlement Record Producer">547c0b0e77263300edfc0ff9ba1061c6</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>true</isolate_script>
+<messages/>
+<name>ReserveEntitlement [onSubmit]</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+	g_form.clearMessages();
+	
+	var decimalRegex = /^\d*(\.\d{1,2})?$/;
+	var startDate = getDateFromFormat(g_form.getValue('start_date'), g_user_date_format);
+	var endDate = getDateFromFormat(g_form.getValue('end_date'), g_user_date_format);
+	var minDate = getDateFromFormat(g_form.getValue('min_date'), g_user_date_format);
+	var maxDate = getDateFromFormat(g_form.getValue('max_date'), g_user_date_format);
+	
+	var validationPassed = decimalRegex.test(g_form.getValue('unit_cost'))
+		&& startDate > 0
+		&& endDate > 0
+		&& startDate <= endDate
+		&& (!minDate || startDate >= minDate)
+		&& (!maxDate || endDate <= maxDate);
+	
+	if (!validationPassed) {
+		g_form.addErrorMessage(getMessage('Please correct the form errors below.'));
+	}
+	
+	return validationPassed;
+}
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2019-08-15 18:11:13</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>9c86679d54933300fa9b4b6d10792daa</sys_id>
+<sys_mod_count>15</sys_mod_count>
+<sys_name>ReserveEntitlement [onSubmit]</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Software Asset Management Professional Core" source="com.snc.samp.core">17155a0347433110bc56b3f4116d43a9</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_9c86679d54933300fa9b4b6d10792daa</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2019-10-10 05:45:00</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Propose a new Standard Change Template">cb2a927f935002003b7a7a75e57ffb4c</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Get Chg Id and copy attachments</name>
+<order/>
+<script><![CDATA[function onLoad() {
+	//Type appropriate comment here, and begin script below
+	var chgReqId = getParmVal('sysparm_chgReqId');
+	if(chgReqId){
+		g_form.setValue("variables.created_from_change", chgReqId);
+		
+		var itemGUID = gel('sysparm_item_guid');
+
+		// Noticed that during the RP flow, a unique id is generated for the record ('std_change_proposal' in our case) which will be generated
+		// by the record producer. Copying all the attachments from change_request to this record.
+		var copyAttAj = new GlideAjax('StdChangeUtils');
+		copyAttAj.addParam('sysparm_name', 'copyAttachments');
+		copyAttAj.addParam('sysparm_srcTable', 'change_request');
+		copyAttAj.addParam('sysparm_srcSysId', chgReqId);
+		copyAttAj.addParam('sysparm_targetTable', 'std_change_proposal');
+		copyAttAj.addParam('sysparm_targetSysId', itemGUID.value);
+		copyAttAj.getXML(processAttachments);
+	}
+}
+
+function getParmVal(name){
+	var url = document.URL.parseQuery();
+	if(url[name]){
+		return decodeURI(url[name]);
+	}
+	else{
+		return;
+	}
+}
+
+function processAttachments(response) {
+	// get attachmentInfo elements
+	var attachments = response.responseXML.getElementsByTagName("attachmentInfo");
+	for ( var i = 0; i < attachments.length; i++) {
+		var id = attachments[i].getAttribute("id");
+		var name = attachments[i].getAttribute("name");
+		var imgSrc = attachments[i].getAttribute("imgSrc");
+		addAttachmentNameToForm(id, name, "New", imgSrc, "true", "true");
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-07 09:55:32</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>b1c2c5a2938102009ca87a75e57ffb38</sys_id>
+<sys_mod_count>58</sys_mod_count>
+<sys_name>Get Chg Id and copy attachments</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Change Management - Standard Change Catalog" source="com.snc.change_management.standard_change_catalog">1c5938643cf1311068bcf327dfe37f5c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_b1c2c5a2938102009ca87a75e57ffb38</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-03-21 15:06:03</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Modify a Standard Change Template">32b19f3b9fb002002920bde8132e7024</cat_item>
+<cat_variable>IO:afb2537b9fb002002920bde8132e7076</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Default Values For Modify</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+
+	function tagToObj(tag, detectValue) {
+		var ans = {};
+		var attrs = tag.attributes;
+		if (attrs.length == 1 && tag.getAttribute('value')) {
+			ans = tag.getAttribute('value');
+		} else {
+			for (var i = 0; i < attrs.length; i++) {
+				var attr = attrs.item(i);
+				ans[attr.name] = attr.value;
+			}
+		}
+		return ans;
+	}
+
+	function toJson(resp) {
+		var ans = {};
+		var tags = resp.responseXML.documentElement.childNodes;
+		for (var i = 0; i < tags.length; i++) {
+			var tag = tags.item(i);
+			var tagName = tag.nodeName;
+			if (tag.getAttribute('idx')) { //Then this is array
+				if (!ans[tagName])
+					ans[tagName] = [];
+				ans[tagName].push(tagToObj(tag, false));
+			} else {
+				ans[tagName] = tagToObj(tag, true);
+			}
+		}
+		return ans;
+	}
+
+	//Populate Template Values From 'Template to modify'
+	ga = new GlideAjax('StdChangeUtils');
+	ga.addParam('sysparm_name', 'getTemplNCategoryForModify');
+	ga.addParam('sysparm_tableName', 'std_change_record_producer');
+	ga.addParam('sysparm_sysid', newValue);
+	ga.addParam('add_mandatory_fields', true);
+	ga.setWantSessionMessages(false);
+	ga.getXML(function(resp) {
+		var parsedResp = toJson(resp);
+		if (parsedResp && parsedResp.template && parsedResp.template.trim() !== '') {
+			//processFields is defined in macro std_chg_template_handler
+			processFields(parsedResp.template);
+		}
+		g_form.setValue('variables.category', parsedResp.category);
+	});
+
+	//Populate Attachments
+	//Definition of this function is in the onLoad client script 'Pre-populate Proposal to Modify '	
+	populateAttachments(newValue, true);
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-06 06:46:44</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>57cecb069f0102002920bde8132e70b2</sys_id>
+<sys_mod_count>22</sys_mod_count>
+<sys_name>Default Values For Modify</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Change Management - Standard Change Catalog" source="com.snc.change_management.standard_change_catalog">1c5938643cf1311068bcf327dfe37f5c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_57cecb069f0102002920bde8132e70b2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-02-27 17:51:56</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Create a new Export Set">c568d679471102003db6d7527c9a7129</cat_item>
+<cat_variable>IO:2b3d1e3a47d102003db6d7527c9a71ab</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Set Default File Path</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+   if (isLoading || newValue == '') {
+      return;
+   }
+
+	var filePath = g_form.getControl('file_path');
+	
+	if (newValue != '')
+		setDefaultFilePath(newValue);
+}
+
+function setDefaultFilePath(midServerId) {
+	var filePath = g_form.getControl('file_path');
+	var esajax = new GlideAjax('ExportTargetHelper');
+	esajax.addParam('sysparm_name', 'getOSForMIDServer');
+	esajax.addParam('sysparm_mid_server_id', midServerId);
+	esajax.getXML(function(resp) {
+		var rootNode = resp.responseXML.getElementsByTagName('xml');
+		var osValue = rootNode[0].getAttribute('answer');
+		if (osValue != null && osValue.toLowerCase().indexOf('windows') > -1)
+			filePath.value = "\\";
+		else
+			filePath.value = "/";
+	});
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-08-31 18:40:50</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>aa8bca1c7f12020036bfdd620efa91c2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Set Default File Path</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Basic Export Set Functionality" source="com.glide.system_export_set">9d5774a83cb1311068bcf327dfe37f44</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_aa8bca1c7f12020036bfdd620efa91c2</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2015-08-31 18:40:50</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Modify a Standard Change Template">32b19f3b9fb002002920bde8132e7024</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Pre-populate Proposal to Modify </name>
+<order/>
+<script><![CDATA[function onLoad() {
+	var stdChangeProducerSysId = getParmVal('std_change_producer');
+	if (stdChangeProducerSysId) {
+		g_form.setValue('variables.std_change_producer', stdChangeProducerSysId);
+		populateValsFromMod(stdChangeProducerSysId);
+
+		populateAttachments(stdChangeProducerSysId, false);
+	}
+}
+
+function populateValsFromMod(newValue) {
+	//Populate Template Values From 'Template to modify'
+	ga = new GlideAjax('StdChangeUtils');
+	ga.addParam('sysparm_name', 'getTemplNCategoryForModify');
+	ga.addParam('sysparm_tableName', 'std_change_record_producer');
+	ga.addParam('sysparm_sysid', newValue);
+	ga.setWantSessionMessages(false);
+	ga.getXML(function(resp) {
+		var parsedResp = toJson(resp);
+		g_form.setValue('variables.category', parsedResp.category);
+	});
+}
+
+function tagToObj(tag, detectValue) {
+	var ans = {};
+	var attrs = tag.attributes;
+	if (attrs.length == 1 && tag.getAttribute('value')) {
+		ans = tag.getAttribute('value');
+	} else {
+		for (var i = 0; i < attrs.length; i++) {
+			var attr = attrs.item(i);
+			ans[attr.name] = attr.value;
+		}
+	}
+	return ans;
+}
+
+function toJson(resp) {
+	var ans = {};
+	var tags = resp.responseXML.documentElement.childNodes;
+	for (var i = 0; i < tags.length; i++) {
+		var tag = tags.item(i);
+		var tagName = tag.nodeName;
+		if (tag.getAttribute('idx')) { //Then this is array
+			if (!ans[tagName])
+				ans[tagName] = [];
+			ans[tagName].push(tagToObj(tag, false));
+		} else {
+			ans[tagName] = tagToObj(tag, true);
+		}
+	}
+	return ans;
+}
+
+function getParmVal(name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.href);
+	if (results) {
+		return unescape(results[1]);
+	} else {
+		return '';
+	}
+}
+
+function populateAttachments(stdChangeProducerSysId, removeExisting){
+
+	var itemGUID = gel('sysparm_item_guid');
+
+	var copyAttAj = new GlideAjax('StdChangeUtils');
+	copyAttAj.addParam('sysparm_name', 'copyAttachments');
+	copyAttAj.addParam('sysparm_srcTable', 'std_change_record_producer');
+	copyAttAj.addParam('sysparm_srcSysId', stdChangeProducerSysId);
+	copyAttAj.addParam('sysparm_targetTable', 'std_change_proposal');
+	copyAttAj.addParam('sysparm_targetSysId', itemGUID.value);
+	copyAttAj.addParam('sysparm_removeExisting', removeExisting);
+	copyAttAj.getXML(processAttachments);
+}
+
+function processAttachments(response) {
+	// get attachmentInfo elements
+	var attachments = response.responseXML.getElementsByTagName("attachmentInfo");
+	var deletedAttachmentIds = '';
+
+	for ( var i = 0; i < attachments.length; i++) {
+		var id = attachments[i].getAttribute("id");
+		var name = attachments[i].getAttribute("name");
+		var imgSrc = attachments[i].getAttribute("imgSrc");
+		var action = attachments[i].getAttribute("action");
+
+		if ('delete' == action) {
+			deletedAttachmentIds += ';' + id;
+		}
+		else if ('add' == action) {
+			addAttachmentNameToForm(id, name, "New", imgSrc, "true", "true");
+		}
+	}
+
+	if(deletedAttachmentIds != '')
+		deleteExistingAttachments(deletedAttachmentIds);
+}
+
+// this get called after attachments are deleted to update the display
+function deleteExistingAttachments(sysIds) {
+	var itemGUID = gel('sysparm_item_guid');
+
+	var modified = $("attachments_modified");
+	if (modified)
+		modified.value = "true";
+	var header_attachment = $('header_attachment');
+
+	var idArray = sysIds.split(";");
+	for (var i=0; i<idArray.length; i++) {
+		var id = idArray[i];
+		if(id)
+			changeCount(itemGUID.value, 'decrease');
+
+		e = gel("attachment_" + id);
+		if (e)
+			rel(e);
+	}
+
+	var more_attachments = $('more_attachments');
+	if (more_attachments && header_attachment)
+		if( (computeAttachmentWidth() - 20) >= (header_attachment.getWidth() - more_attachments.getWidth()))
+		more_attachments.style.display = 'block';
+	else
+		more_attachments.style.display = 'none';
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-06 13:44:57</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>0aee20529f8102002920bde8132e70a7</sys_id>
+<sys_mod_count>11</sys_mod_count>
+<sys_name>Pre-populate Proposal to Modify </sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Change Management - Standard Change Catalog" source="com.snc.change_management.standard_change_catalog">1c5938643cf1311068bcf327dfe37f5c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_0aee20529f8102002920bde8132e70a7</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2015-08-28 07:51:58</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Create a new Export Set">c568d679471102003db6d7527c9a7129</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Set Placeholder</name>
+<order/>
+<script><![CDATA[function onLoad() {
+  var name = g_form.getControl('export_set');
+  if(name !== null)
+	  name.placeholder = getMessage("Enter a name for this Export Set");
+	
+  var filePath = g_form.getControl('file_path');
+  if(filePath !== null)
+	  filePath.placeholder = getMessage("Enter a path relative to {MID Server Installation Directory}/export");	
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-21 18:17:06</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>2e9c720b471102003db6d7527c9a71fd</sys_id>
+<sys_mod_count>11</sys_mod_count>
+<sys_name>Set Placeholder</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Basic Export Set Functionality" source="com.glide.system_export_set">9d5774a83cb1311068bcf327dfe37f44</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_2e9c720b471102003db6d7527c9a71fd</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2015-08-21 21:56:00</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>10</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Retire a Standard Change Template">011f117a9f3002002920bde8132e7020</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Pre-populate Proposal to Retire</name>
+<order/>
+<script><![CDATA[function onLoad() {
+	var stdChangeProducerSysId = getParmVal('std_change_producer');
+	if (stdChangeProducerSysId) {
+		g_form.setValue('variables.std_change_producer', stdChangeProducerSysId);
+	}
+}
+
+
+function getParmVal(name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.href);
+	if (results) {
+		return unescape(results[1]);
+	} else {
+		return '';
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-06 13:50:27</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>9b30f0529f8102002920bde8132e7013</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Pre-populate Proposal to Retire</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Change Management - Standard Change Catalog" source="com.snc.change_management.standard_change_catalog">1c5938643cf1311068bcf327dfe37f5c</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_9b30f0529f8102002920bde8132e7013</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2015-07-06 14:07:25</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Service Category Request">3a25637b47701100ba13a5554ee490a0</cat_item>
+<cat_variable>IO:7406637b47701100ba13a5554ee49012</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Populate Manager and Name</name>
+<order>200</order>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	if (newValue == '') {
+		g_form.setValue("manager", "");
+		g_form.setValue("name", "");
+		return;
+	}
+	
+	var gr = g_form.getReference("department", populateManager);
+}
+
+function populateManager(gr) {
+	g_form.setValue("manager", gr.dept_head);
+	var name = gr.name;
+	if (name != '' && name.toLowerCase().indexOf('services') == -1)
+		name += ' Services';
+	g_form.setValue("name", name);
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>glide.james</sys_created_by>
+<sys_created_on>2013-12-10 16:33:39</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>a59e1ab95f2111001c9b2572f2b47780</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Populate Manager and Name</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Creator" source="com.glide.service_creator">5f4770a83cb1311068bcf327dfe37f66</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_a59e1ab95f2111001c9b2572f2b47780</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2014-06-25 14:58:47</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Service Category Request">3a25637b47701100ba13a5554ee490a0</cat_item>
+<cat_variable>IO:aefb68015f212100a9ad2572f2b47702</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Populate Manager and Name</name>
+<order>100</order>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	if (newValue == '') {
+		g_form.setValue("manager", "");
+		g_form.setValue("name", "");
+		return;
+	}
+	
+	var gr = g_form.getReference("group", populateManager);
+}
+
+function populateManager(gr) {
+	var name = gr.name;
+	if (name != '' && name.toLowerCase().indexOf('services') == -1)
+		name += ' Services';
+	g_form.setValue("name", name);
+	
+	if (gr.manager != '')
+		g_form.setValue("manager", gr.manager);
+	else
+		g_form.setValue("manager", g_user.getUserID());
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2014-06-24 20:41:01</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>152f6c015f212100a9ad2572f2b47725</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Populate Manager and Name</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Creator" source="com.glide.service_creator">5f4770a83cb1311068bcf327dfe37f66</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_152f6c015f212100a9ad2572f2b47725</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2014-06-25 14:58:42</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Service Category Request">3a25637b47701100ba13a5554ee490a0</cat_item>
+<cat_variable>IO:130b28015f212100a9ad2572f2b47780</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Department or Group</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	if (isLoading || newValue == '')
+		return;
+	
+	if (newValue == 'department') {
+		g_form.setValue('group', '');
+		g_form.setValue('department', g_user.getDepartmentID());
+	} else {
+		g_form.setValue('department', '');
+		g_form.setValue('name', '');
+		g_form.setValue('manager', '');
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2014-06-24 20:33:08</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>852da8015f212100a9ad2572f2b477e9</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Department or Group</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Creator" source="com.glide.service_creator">5f4770a83cb1311068bcf327dfe37f66</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_852da8015f212100a9ad2572f2b477e9</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2014-06-25 14:52:36</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Item Designer Category Request">48bcec40eb0311003623666cd206fe24</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Check for duplicate category name</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+	g_form.hideFieldMsg("title");
+	
+	var catGr = new GlideRecord("sc_category");
+	catGr.addQuery("title", g_form.getValue("title"));
+	catGr.addQuery("sc_catalog", g_form.getValue("sc_catalog"));
+	var parentCat = g_form.getValue("parent");
+	if (parentCat != "")
+		catGr.addQuery("parent", parentCat);
+	catGr.query();
+	
+	if (catGr.hasNext()) {
+		g_form.showFieldMsg("title", "There is already a Category with this name in the selected catalog" + (parentCat != "" ? " and parent category" : ""), "error");
+		return false;
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>nigel.bell</sys_created_by>
+<sys_created_on>2014-02-18 10:07:00</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>bfa56994eb4311003623666cd206fe31</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>Check for duplicate category name</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Platform" source="com.glideapp.servicecatalog.platform">3607b4283cb1311068bcf327dfe37fee</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_bfa56994eb4311003623666cd206fe31</sys_update_name>
+<sys_updated_by>nigel.bell</sys_updated_by>
+<sys_updated_on>2014-02-18 20:31:31</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Item Designer Category Request">48bcec40eb0311003623666cd206fe24</cat_item>
+<cat_variable>IO:0cbcec40eb0311003623666cd206fe28</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Clear parent category on catalog change</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+	if (newValue == '' || newValue != oldValue)
+		g_form.clearValue("variables.parent");
+}
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>nigel.bell</sys_created_by>
+<sys_created_on>2014-02-17 12:10:28</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>6468f880eb0311003623666cd206feec</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Clear parent category on catalog change</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog Platform" source="com.glideapp.servicecatalog.platform">3607b4283cb1311068bcf327dfe37fee</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_6468f880eb0311003623666cd206feec</sys_update_name>
+<sys_updated_by>nigel.bell</sys_updated_by>
+<sys_updated_on>2014-02-17 12:10:28</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Delegate roles to group member">1bc632740a0a0b1f006acf4eae5fce32</cat_item>
+<cat_variable>IO:1bc676aa0a0a0b1f00b3319c84b7139f</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Set roles filter</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+
+   g_form.setValue("delegate_roles_user", "");
+
+   var group = g_form.getValue("delegate_roles_group");
+   var answer = 'sys_idINjavascript:getDelegatableRoles("' + group + '")';
+   delegate_roles_rolesg_filter.reset();
+   delegate_roles_rolesg_filter.setQuery(answer);
+   delegate_roles_rolesacRequest(null);
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>james.capaldo</sys_created_by>
+<sys_created_on>2010-03-02 00:13:43</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>1c37061f0a0a0b1f019359dec3d0bf96</sys_id>
+<sys_mod_count>10</sys_mod_count>
+<sys_name>Set roles filter</sys_name>
+<sys_overrides display_value="">global</sys_overrides>
+<sys_package display_value="Role Delegation" source="com.snc.role_delegation">a167bca83cb1311068bcf327dfe37f43</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_1c37061f0a0a0b1f019359dec3d0bf96</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2013-07-08 15:28:48</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type>0</ui_type>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>false</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>true</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Apple iPhone 5">0d08837237153000158bbfc8bcbe5d02</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Disable carrier until device available</name>
+<order/>
+<script><![CDATA[function onLoad() {
+    var orderPhoneTask = "0527a85837213000158bbfc8bcbe5d71";
+    var deliverToITLabTask = "54b346b337b1300054b6a3549dbe5df6";
+    g_form.setReadonly("carrier", true);
+    var gr = new GlideRecord("sc_task");
+	gr.addQuery("sys_id", g_form.getUniqueValue());
+	gr.query();
+	if (gr.next()) {
+		var id = gr.delivery_task;
+		if (id != orderPhoneTask && id != deliverToITLabTask)
+			g_form.setReadonly("carrier", false);
+	}
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2012-11-26 14:19:08</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>4e4d0a3737b1300054b6a3549dbe5dd3</sys_id>
+<sys_mod_count>9</sys_mod_count>
+<sys_name>Disable carrier until device available</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Service Catalog core applications" source="com.glideapp.servicecatalog">fa07b4283cb1311068bcf327dfe37fed</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_4e4d0a3737b1300054b6a3549dbe5dd3</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2012-11-26 14:34:19</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type/>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Delegate roles to group member">1bc632740a0a0b1f006acf4eae5fce32</cat_item>
+<cat_variable>IO:1bc802ad0a0a0b1f0032cc1ab9c1b734</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Show Delegate Roles</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  var sourceOptions = gel('delegate_roles_roles_select_1').options;
+  // Remove all options from the Selected list
+  var selectedIds = new Array();
+  var index = 0;
+  for (var i = 0; i < sourceOptions.length; i++) {
+    if (sourceOptions[i].value != "--None--") // don't move the empty label
+      selectedIds[index++] = i;
+  }
+  if (selectedIds.length > 0) {
+    var s0 = gel('delegate_roles_roles_select_0');
+    moveSelectedOptions(selectedIds, gel('delegate_roles_roles_select_1'), s0, '--None--', null, '--None--');
+    sortSelect(s0);
+    s0.selectedIndex = -1;
+  }
+
+  if (newValue != "") {
+    var ga = new GlideAjax('DelegateRolesAjax');
+    ga.addParam('sysparm_name','getDelegateUserRoles');
+    ga.addParam('sysparm_user', g_form.getValue("delegate_roles_user"));
+    ga.addParam('sysparm_group', g_form.getValue("delegate_roles_group"));
+    ga.getXML(populateDelegatedRoles);
+    g_form.setDisplay("delegate_roles_roles", true);
+} else
+    g_form.setDisplay("delegate_roles_roles", false);
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>james.capaldo</sys_created_by>
+<sys_created_on>2010-03-02 00:15:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>1c3a098b0a0a0b1f01ebfea88dfe389b</sys_id>
+<sys_mod_count>17</sys_mod_count>
+<sys_name>Show Delegate Roles</sys_name>
+<sys_overrides display_value="">global</sys_overrides>
+<sys_package display_value="Role Delegation" source="com.snc.role_delegation">a167bca83cb1311068bcf327dfe37f43</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_1c3a098b0a0a0b1f01ebfea88dfe389b</sys_update_name>
+<sys_updated_by>james.capaldo</sys_updated_by>
+<sys_updated_on>2010-03-16 15:05:53</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type/>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Delegate roles to group member">1bc632740a0a0b1f006acf4eae5fce32</cat_item>
+<cat_variable>IO:1bc802ad0a0a0b1f0032cc1ab9c1b734</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Populate Roles and Hide Variables</name>
+<order/>
+<script><![CDATA[function onLoad() {
+   g_form.setDisplay("delegate_roles_not_selected", false);
+   g_form.setDisplay("delegate_roles_roles", false);
+   g_form.setDisplay("delegate_roles_user", false);
+}
+
+function populateDelegatedRoles(response) {
+  var selectedIDs = new Array();
+  var index = 0;
+  var answer = response.responseXML.documentElement.getAttribute("answer").split(",");
+  for (var i = 0; i < answer.length; i++) {
+    var roleID = answer[i];
+    var options = gel("delegate_roles_roles_select_0").options;
+    for (var n = 0; n < options.length; n++) {
+      if (options[n].value == roleID) {
+        selectedIDs[index++] = n;
+        break;
+      }
+    }
+  }
+  selectedIDs = selectedIDs.sort();
+  if (selectedIDs.length > 0) { // user already has roles in this group, so show them as selected
+    var s1 = gel('delegate_roles_roles_select_1');
+    moveSelectedOptions(selectedIDs, gel('delegate_roles_roles_select_0'), s1, '--None--', null, '--None--');
+    sortSelect(s1);
+    s1.selectedIndex = -1;
+  }
+}
+
+]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>james.capaldo</sys_created_by>
+<sys_created_on>2010-03-09 17:24:50</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>43f522060a0a0baf00830a25595a2d7f</sys_id>
+<sys_mod_count>18</sys_mod_count>
+<sys_name>Populate Roles and Hide Variables</sys_name>
+<sys_overrides display_value="">global</sys_overrides>
+<sys_package display_value="Role Delegation" source="com.snc.role_delegation">a167bca83cb1311068bcf327dfe37f43</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_43f522060a0a0baf00830a25595a2d7f</sys_update_name>
+<sys_updated_by>james.capaldo</sys_updated_by>
+<sys_updated_on>2010-03-16 15:05:33</sys_updated_on>
+<table/>
+<type>onLoad</type>
+<ui_type/>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to>item</applies_to>
+<cat_item display_value="Delegate roles to group member">1bc632740a0a0b1f006acf4eae5fce32</cat_item>
+<cat_variable/>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Record unselected roles</name>
+<order/>
+<script><![CDATA[function onSubmit() {
+   var unselected = new Array();
+   var options = gel("delegate_roles_roles_select_0").options;
+   for (var i = 0; i < options.length; i++)
+      unselected.push(options[i].value);
+   g_form.setValue("delegate_roles_not_selected", unselected.join());
+
+}]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>james.capaldo</sys_created_by>
+<sys_created_on>2010-03-12 22:41:14</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path/>
+<sys_id>5488e9200a0a0b2c000afcaf9cd09398</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>Record unselected roles</sys_name>
+<sys_overrides display_value="">global</sys_overrides>
+<sys_package display_value="Role Delegation" source="com.snc.role_delegation">a167bca83cb1311068bcf327dfe37f43</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_5488e9200a0a0b2c000afcaf9cd09398</sys_update_name>
+<sys_updated_by>james.capaldo</sys_updated_by>
+<sys_updated_on>2010-03-12 22:49:03</sys_updated_on>
+<table/>
+<type>onSubmit</type>
+<ui_type/>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+<catalog_script_client action="INSERT_OR_UPDATE">
+<active>true</active>
+<applies_catalog>true</applies_catalog>
+<applies_extended>false</applies_extended>
+<applies_req_item>false</applies_req_item>
+<applies_sc_task>false</applies_sc_task>
+<applies_target_record>false</applies_target_record>
+<applies_to/>
+<cat_item display_value="Database Restore">508b6735c0a800050056c0334b734118</cat_item>
+<cat_variable>IO:50926071c0a800050064ec9c08069f1f</cat_variable>
+<condition/>
+<description/>
+<field/>
+<global>true</global>
+<isolate_script>false</isolate_script>
+<messages/>
+<name>Set Source</name>
+<order/>
+<script><![CDATA[function onChange(control, oldValue, newValue, isLoading)
+			{
+			var source = g_form.getValue('backup_source');
+			if (source != '')
+			return;
+
+			if (newValue == source)
+			return;
+
+			g_form.setValue('backup_source', newValue);
+			}
+		]]></script>
+<sys_class_name>catalog_script_client</sys_class_name>
+<sys_created_by>glide.maint</sys_created_by>
+<sys_created_on>2007-11-18 16:36:17</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>539d2d8cc0a800050048f30e463c223c</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>Set Source</sys_name>
+<sys_overrides display_value="">global</sys_overrides>
+<sys_package display_value="Service Catalog core applications" source="com.glideapp.servicecatalog">fa07b4283cb1311068bcf327dfe37fed</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>catalog_script_client_539d2d8cc0a800050048f30e463c223c</sys_update_name>
+<sys_updated_by>glide.maint</sys_updated_by>
+<sys_updated_on>2007-11-18 16:39:17</sys_updated_on>
+<table/>
+<type>onChange</type>
+<ui_type/>
+<variable_set display_value=""/>
+<view/>
+</catalog_script_client>
+</unload>

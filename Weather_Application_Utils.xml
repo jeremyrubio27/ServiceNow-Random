@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-02-26 19:16:09">
+<sys_script_include action="INSERT_OR_UPDATE">
+<access>package_private</access>
+<active>true</active>
+<api_name>global.Weather_Application_Utils</api_name>
+<caller_access/>
+<client_callable>false</client_callable>
+<description/>
+<name>Weather_Application_Utils</name>
+<script><![CDATA[var Weather_Application_Utils = Class.create();
+Weather_Application_Utils.prototype = {
+    initialize: function() {
+    },
+
+
+	getLocationInfo: function(location){
+
+	if(location == "" || location == null){
+		location = 'Pasig';
+	}
+
+
+
+	var r = new sn_ws.RESTMessageV2('Geocoding API', 'Default GET');
+	r.setStringParameterNoEscape('city name', location);
+	r.setStringParameterNoEscape('API key', '0b3b78f0075c50f97d731b7f6f300e22');
+
+
+	var response = r.execute();
+	var responseBody = response.getBody();
+	var httpStatus = response.getStatusCode();
+
+
+    if(httpStatus == 200 || httpStatus == '200'){
+		return responseBody
+	}
+
+
+	},
+
+getWeather: function(lat,lon){
+
+
+
+ var r = new sn_ws.RESTMessageV2('Geocoding API', 'getWeather');
+ r.setStringParameterNoEscape('API key', '0b3b78f0075c50f97d731b7f6f300e22');
+ r.setStringParameterNoEscape('lon', lon);
+ r.setStringParameterNoEscape('lat', lat);
+
+ var response = r.execute();
+ var responseBody = response.getBody();
+ var httpStatus = response.getStatusCode();
+
+
+ if(httpStatus === 200 || httpStatus === '200'){
+	return responseBody;
+ }
+
+
+},
+
+
+getTimeForLocation: function(lat,lon){
+
+ var r = new sn_ws.RESTMessageV2('TimeZone API', 'Default GET');
+ r.setStringParameterNoEscape('lon', lon);
+ r.setStringParameterNoEscape('lat', lat);
+
+ var response = r.execute();
+ var responseBody = response.getBody();
+ var httpStatus = response.getStatusCode();
+
+
+ if(httpStatus == 200 || httpStatus == '200'){
+	return responseBody
+ }
+
+
+},
+
+
+
+
+    type: 'Weather_Application_Utils'
+};]]></script>
+<sys_class_name>sys_script_include</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-02-12 14:12:23</sys_created_on>
+<sys_id>f152be3197d00210e779b4b3f153af15</sys_id>
+<sys_mod_count>14</sys_mod_count>
+<sys_name>Weather_Application_Utils</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_include_f152be3197d00210e779b4b3f153af15</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-02-12 15:30:40</sys_updated_on>
+</sys_script_include>
+</unload>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-27 17:26:16">
+<sp_widget action="INSERT_OR_UPDATE">
+<category>custom</category>
+<client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	$scope.submit = function(location){
+	 
+	c.server.get({
+		action:"searchLocation",
+		value: location
+	}).then( function(response){
+		c.data.weather = response.data.weather
+		c.data.date    = response.data.date
+	})
+					
+	}
+	
+
+	
+	
+};]]></client_script>
+<controller_as>c</controller_as>
+<css>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&amp;family=Poppins:wght@200;400&amp;display=swap');
+
+body{
+margin: 0;
+padding:0;
+}
+
+.container{
+padding:0;
+margin:0;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+width: 100%;
+height: 90vh;
+background-color: #ececec;
+  font-family: poppins;
+
+}
+
+.weather-container{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-item: center;
+  justify-content: center;
+  height:80vh;
+  box-sizing: border-box;
+}
+
+
+.weather-icon{
+background-color: white;
+box-sizing: border-box;
+flex-basis: 25%;
+display:flex;
+flex-direction: column;
+align-items: center;
+}
+
+.search-nav{
+
+  margin-top: 30px;
+}
+
+.search-nav input{
+  padding-left: 12px;
+  outline: blue;
+  border-radius: 20px;
+  width: 220px;
+  height: 35px;
+  border: none;
+  background-color: #f6f6f6;
+}
+
+.search-nav i{
+position: absolute;
+right:120px;
+top:37px;
+color: #748cf1;
+font-size: 20px;
+}
+
+.btn-header{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.weather-info{
+
+background-color: #f6f6f6;
+
+}
+
+
+.content{
+
+  margin-top: 30px;
+display:flex;
+justify-content:center;
+align-items: center;
+flex-direction: column;
+  
+}
+
+.content img{
+  width: auto;
+  background-size: auto;
+  
+}
+
+.content-info{
+
+display:flex;
+justify-content:center;
+align-items: center;
+flex-direction: column;
+position:relative;
+}
+
+.content-info h1{
+ 
+  font-size: 60px;
+  
+}
+
+.content-info span{
+
+position: absolute;
+top: 10px;
+right: -35px;
+font-weight: 200;
+font-size: 35px;
+
+}
+
+.info-today{
+
+ display: flex;
+ justify-content: center;
+ align-items:center;
+ flex-direction: column;
+ margin-top:20px;
+}
+
+.info-today h6:nth-child(1){
+
+ margin-bottom: auto; 
+  font-size: 12px;
+}
+
+.info-today h6:nth-child(2){
+  
+ margin-top: 8px; 
+  font-size: 12px;
+}
+
+.info-today h3{
+ margin-top: 64px;
+ font-size: 35px;
+
+}
+
+.weather-info{
+ height: 100%;
+ flex-wrap: wrap;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-evenly;
+}
+
+.blue-container{
+
+height:100%;
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+
+  
+}
+
+.blue{
+
+  height: 120px;
+  width: 220px;
+  background-color: #748cf1;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.blue h5{
+  font-weight: 200;
+  color: #f6f6f6;
+  
+
+}
+
+.blue h2{
+  font-size: 20px;
+  color: white;
+
+}
+
+.sunset{
+font-size: 20px;
+}
+
+.sunrise{
+font-size: 20px;
+}
+
+
+
+
+
+
+</css>
+<data_table>sp_instance</data_table>
+<demo_data/>
+<description/>
+<docs display_value=""/>
+<field_list/>
+<has_preview>true</has_preview>
+<id>weather_application</id>
+<internal>false</internal>
+<link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+<name>Weather Application</name>
+<option_schema/>
+<public>false</public>
+<roles/>
+<script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+//getLocationInfo 
+//Get users location, latitude and longitude 	
+
+//getWeather
+//Get users weather information for the specific location that was return from getLocationInfo
+	
+var getUserLocation = new Weather_Application_Utils().getLocationInfo();
+var newdata = JSON.parse(getUserLocation);
+	
+var weatherInfo =	 new Weather_Application_Utils().getWeather(newdata[0].lat,newdata[0].lon)
+var weatherData = JSON.parse(weatherInfo)
+var degree = Math.floor(weatherData.main.temp - 273.15);
+
+var sunrise = new Weather_Application_Utils().getSunriseSunset(weatherData.sys.sunrise)
+var sunset  = new Weather_Application_Utils().getSunriseSunset(weatherData.sys.sunset)
+
+data.weather = {
+	temp: degree,
+	description: weatherData.weather[0].description,
+	icon: weatherData.weather[0].icon,
+	location: "Pasig",
+	humidity: weatherData.main.humidity,
+	pressure: weatherData.main.pressure,
+	visibility: (weatherData.visibility/1000)% 2 !== 0?  (weatherData.visibility/1000).toFixed(2) : (weatherData.visibility/1000).toFixed(0),
+	windspeed: (weatherData.wind.speed *3.6).toFixed(2),
+	sunrise: sunrise,
+	sunset: sunset,
+	tempMin: (weatherData.main.temp_min - 273.15).toFixed(2),
+	tempMax: (weatherData.main.temp_max - 273.15).toFixed(2),
+	clouds: weatherData.clouds.all
+}
+
+var dataAPI = new Weather_Application_Utils().getTimeForLocation(newdata[0].lat,newdata[0].lon)
+var dataResult = JSON.parse(dataAPI)
+var timedate = JSON.parse(dataResult)
+
+var dateToday    = new GlideDate()
+var getYear      = dateToday.getByFormat('yyyy')
+var getDate      = dateToday.getDayOfMonthNoTZ();
+var getMonth     = dateToday.getByFormat('MMMM')
+var getDay       = dateToday.getByFormat('EEEE')
+var getTimeToday = new GlideDateTime();
+var getTime      = new GlideTime();
+getTime.setValue('8:00:00');
+getTimeToday.add(getTime);
+var getTime2     = getTimeToday.getTime();
+var time         = getTime2.getByFormat('h:mm')
+
+
+data.date = {
+	date: getDate,
+	month:getMonth,
+	year: getYear,
+	day:getDay,
+	time: time
+} 
+	
+if(input && input.action == 'searchLocation'){
+	
+var fixLocation = input.value
+var character   = fixLocation.charAt(0);
+var location    = character.toUpperCase() + fixLocation.substring(1) 	
+		
+	
+var responseBody;
+var httpStatus;
+
+getUserLocation = new Weather_Application_Utils().getLocationInfo(input.value);
+newdata = JSON.parse(getUserLocation);
+
+	
+weatherInfo =	 new Weather_Application_Utils().getWeather(newdata[0].lat,newdata[0].lon)
+weatherData = JSON.parse(weatherInfo)
+degree = Math.floor(weatherData.main.temp - 273.15);
+
+sunrise = new Weather_Application_Utils().getSunriseSunset(weatherData.sys.sunrise)
+sunset  = new Weather_Application_Utils().getSunriseSunset(weatherData.sys.sunset)
+
+data.weather = {
+	temp: degree,
+	description: weatherData.weather[0].description,
+	icon: weatherData.weather[0].icon,
+	location: location,
+	humidity: weatherData.main.humidity,
+	pressure: weatherData.main.pressure,
+	visibility: (weatherData.visibility/1000)% 2 !== 0?  (weatherData.visibility/1000).toFixed(2) : (weatherData.visibility/1000).toFixed(0),
+	windspeed: (weatherData.wind.speed *3.6).toFixed(2),
+	sunrise: sunrise,
+	sunset: sunset,
+	tempMin: (weatherData.main.temp_min - 273.15).toFixed(2),
+	tempMax: (weatherData.main.temp_max - 273.15).toFixed(2),
+	clouds: weatherData.clouds.all
+}
+	
+	
+
+dataAPI = new Weather_Application_Utils().getTimeForLocation(newdata[0].lat,newdata[0].lon)
+
+dataResult = JSON.parse(dataAPI)
+timedate = JSON.parse(dataResult)
+
+
+var arr    = timedate.currentLocalTime.replace('T'," ").split(" ")
+
+var newArr = arr[0] + " " + arr[1] 
+
+dateToday    = new GlideDate()
+getYear      = dateToday.getByFormat('yyyy')
+getDate      = dateToday.getDayOfMonthNoTZ();
+getMonth     = dateToday.getByFormat('MMMM')
+getDay       = dateToday.getByFormat('EEEE')
+getTimeToday = new GlideDateTime(newArr);
+getTime      = getTimeToday.getTime()
+time         = getTime.getByFormat('h:mm')
+
+data.date = {
+	date: getDate,
+	month:getMonth,
+	year: getYear,
+	day:  getDay,
+	time: time
+} 
+
+	
+}
+	
+
+
+	
+})();]]></script>
+<servicenow>false</servicenow>
+<sys_class_name>sp_widget</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-06 07:13:42</sys_created_on>
+<sys_id>becf2abd47abb110bc56b3f4116d430a</sys_id>
+<sys_mod_count>409</sys_mod_count>
+<sys_name>Weather Application</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sp_widget_becf2abd47abb110bc56b3f4116d430a</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-07 18:59:09</sys_updated_on>
+<template><![CDATA[<div class="container">
+<!-- your widget template -->
+  
+
+  <div class="row weather-container">
+    
+    <div class="col-sm-6 weather-icon">
+      <div class="search-nav">
+        <input type="search" ng-model="location">
+        <button class="btn-header" type="submit" ng-click="submit(location)">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+      <div class="content">
+        <img class="img-fluid" ng-src='https://openweathermap.org/img/wn/{{c.data.weather.icon}}@2x.png' width="130" heigth="130"> 
+        <div class="content-info">
+          <h1>
+          {{c.data.weather.temp}} <span class="degree">°C</span>
+         </h1>
+        <h6>
+          {{c.data.weather.description}}
+        </h6>
+      
+        </div>
+      </div>
+      
+     
+  
+      <div class="info-today">
+				<h6>
+          {{c.data.date.date}} {{c.data.date.month}} {{c.data.date.year}}
+        </h6>
+        <h6>
+          {{c.data.date.day}} {{c.data.date.time}}
+        </h6>
+        <h3>
+          {{c.data.weather.location}}
+        </h3>
+      </div>
+      
+    </div>
+    <div class="col-sm-6 weather-info">
+       <div class="blue-container">
+         <div class="blue">
+            <h5>
+              Humidity
+           </h5>
+           <h2>
+             {{c.data.weather.humidity}}%
+           </h2>
+        </div>
+         <div class="blue">
+						<h5>
+              Pressure
+           </h5>
+           <h2>
+              {{c.data.weather.pressure}}
+           </h2>
+        </div>
+         <div class="blue">
+						<h5>
+              Visibility
+           </h5>
+           <h2>
+              {{c.data.weather.visibility}} km
+           </h2>
+        </div>
+      </div>
+      <div class="blue-container">
+         <div class="blue">
+					 <h5>
+              Wind speed
+           </h5>
+           <h2>
+              {{c.data.weather.windspeed}} km/h 
+           </h2>
+        </div>
+          <div class="blue">
+						<h5>
+              Minimum Temp
+           </h5>
+           <h2>
+             {{c.data.weather.tempMin + '&deg' + 'C' }}
+           </h2>
+          </div>
+        <div class="blue sunrise">
+           <h5>
+              Sunrise
+           </h5>
+           <h2 class="sunset">
+              {{c.data.weather.sunrise}}
+           </h2>
+       </div>
+      </div>
+      <div class="blue-container">
+         <div class="blue">
+					 <h5>
+              Maximum Temp
+           </h5>
+           <h2>
+             {{c.data.weather.tempMax + '&deg' + 'C'}}
+           </h2>
+        </div>
+          <div class="blue">
+						<h5>
+              Clouds
+           </h5>
+           <h2>
+             {{c.data.weather.clouds}}%
+           </h2>
+          </div>
+        <div class="blue ">
+           <h5>
+              Sunset
+           </h5>
+           <h2 class="sunset">
+              {{c.data.weather.sunset}}
+           </h2>
+       </div>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>]]></template>
+</sp_widget>
+</unload>

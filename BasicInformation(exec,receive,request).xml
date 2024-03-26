@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-01-29 17:27:50">
+<item_option_new_set action="INSERT_OR_UPDATE">
+<create_roles/>
+<description/>
+<display_title>false</display_title>
+<internal_name>u_bac_basic_information</internal_name>
+<layout>2across</layout>
+<name/>
+<order>100</order>
+<read_roles/>
+<set_attributes/>
+<sys_class_name>item_option_new_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-01 16:39:16</sys_created_on>
+<sys_id>662143d8476b7510bc56b3f4116d4315</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>[BAC] Basic Information </sys_name>
+<sys_package display_value="Book Asset Catalog " source="x_808777_bac">612a5ce5479f7110bc56b3f4116d4310</sys_package>
+<sys_policy/>
+<sys_scope display_value="Book Asset Catalog ">612a5ce5479f7110bc56b3f4116d4310</sys_scope>
+<sys_update_name>item_option_new_set_662143d8476b7510bc56b3f4116d4315</sys_update_name>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-01 16:39:16</sys_updated_on>
+<title>[BAC] Basic Information </title>
+<type>one_to_one</type>
+<write_roles/>
+</item_option_new_set>
+</unload>
